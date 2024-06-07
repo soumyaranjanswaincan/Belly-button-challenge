@@ -6,7 +6,7 @@ function buildMetadata(sample) {
     let metadata = data.metadata;
 
     // Filter the metadata for the object with the desired sample number
-    let result = metadata.filter(sampleObj => sampleObj.id == sample)[0];
+    let result = metadata.filter(obj => obj.id == sample)[0];
 
     // Use d3 to select the panel with id of `#sample-metadata`
     let panel = d3.select("#sample-metadata");
@@ -31,7 +31,7 @@ function buildCharts(sample) {
     let samples = data.samples;
 
     // Filter the samples for the object with the desired sample number
-    let result = samples.filter(sampleObj => sampleObj.id == sample)[0];
+    let result = samples.filter(obj => obj.id == sample)[0];
 
     // Get the otu_ids, otu_labels, and sample_values
     let otu_ids = result.otu_ids;
@@ -42,10 +42,9 @@ function buildCharts(sample) {
     // Build a Bubble Chart
     let bubbleLayout = {
       title: 'Bacteria Cultures Per Sample',
-      margin: { t: 0 },
       xaxis: { title: 'OTU ID' },
       yaxis: { title: 'Number of Bacteria' },
-      margin: { t: 30}
+      margin: { t: 40}
     };
 
     let trace = [
